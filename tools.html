@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Tools - FireCalc Pro</title>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6687860250561653" crossorigin="anonymous"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .site-nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            color: #667eea;
+            font-size: 24px;
+        }
+
+        .brand-text {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+        }
+
+        .nav-link.active {
+            color: #ee5a24;
+            font-weight: 600;
+        }
+
+        .support-nav-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tool-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+        
+        .tool-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .tool-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .tool-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            background: #e8f4fd;
+            color: #2196F3;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        
+        .tool-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .tool-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+        
+        .coming-soon {
+            background: #f8f9fa !important;
+            color: #6c757d !important;
+            cursor: not-allowed;
+        }
+        
+        .featured-tool {
+            border: 2px solid #ff6b6b;
+            background: linear-gradient(135deg, #fff5f5, #fff);
+        }
+        
+        .featured-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4">
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="site-nav">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">🔥</span>
+                <span class="brand-text">FireCalc Pro</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Calculator</a>
+                <a href="tools.html" class="nav-link active">Tools</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="privacy.html" class="nav-link">Privacy</a>
+                <a href="terms.html" class="nav-link">Terms</a>
+                <a href="affiliate.html" class="nav-link">Affiliate</a>
+                <a href="https://buymeacoffee.com/s.amjathkhan" target="_blank" class="support-nav-btn">
+                    <span>☕ Support</span>
+                </a>
+            </div>
+        </nav>
+        
+        <div class="content">
+            <h1>🔥 Professional Tools for Fire Safety Engineers</h1>
+            <p class="text-gray-600 text-lg">A collection of specialized calculators and tools for fire protection professionals. All tools are free, client-side, and privacy-focused.</p>
+            
+            <div class="tools-grid">
+                <!-- Main Calculator -->
+                <div class="tool-card featured-tool">
+                    <div class="featured-badge">⭐ FEATURED</div>
+                    <div class="tool-icon">🧮</div>
+                    <div class="tool-title">Fire Suppression System Calculator</div>
+                    <p class="tool-description">Calculate gas requirements, component costs, and generate quotations for electrical panel fire suppression systems. Supports multiple gases and countries.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Free</span>
+                        <span class="tag">Professional</span>
+                        <span class="tag">Multi-country</span>
+                        <span class="tag">PDF Export</span>
+                    </div>
+                    <a href="index.html" class="tool-link">Launch Calculator →</a>
+                </div>
+                
+                <!-- Coming Soon Tools -->
+                <div class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <div class="tool-title">Gas Concentration Calculator</div>
+                    <p class="tool-description">Calculate gas concentrations for different fire suppression agents based on room volume, temperature, and pressure conditions.</p>
+                    <div class="tool-tags">
+                        <span class="tag">NFPA 2001</span>
+                        <span class="tag">ISO 14520</span>
+                        <span class="tag">Real-time</span>
+                    </div>
+                    <span class="tool-link coming-soon">Coming Soon</span>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">🏢</div>
+                    <div class="tool-title">Room Volume Calculator</div>
+                    <p class="tool-description">Calculate complex room volumes for fire suppression system design. Supports irregular shapes and multiple compartments.</p>
+                    <div class="tool-tags">
+                        <span class="tag">3D Shapes</span>
+                        <span class="tag">Irregular Rooms</span>
+                        <span class="tag">Auto-calc</span>
+                    </div>
+                    <span class="tool-link coming-soon">Coming Soon</span>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">💰</div>
+                    <div class="tool-title">Total Cost of Ownership Calculator</div>
+                    <p class="tool-description">Calculate the complete lifecycle costs of fire suppression systems including maintenance, refills, and compliance costs.</p>
+                    <div class="tool-tags">
+                        <span class="tag">TCO</span>
+                        <span class="tag">Lifecycle</span>
+                        <span class="tag">ROI</span>
+                    </div>
+                    <span class="tool-link coming-soon">Coming Soon</span>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">📈</div>
+                    <div class="tool-title">Fire Risk Assessment Tool</div>
+                    <p class="tool-description">Evaluate fire risks for electrical installations based on equipment type, occupancy, and environmental factors.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Risk Matrix</span>
+                        <span class="tag">Assessment</span>
+                        <span class="tag">Compliance</span>
+                    </div>
+                    <span class="tool-link coming-soon">Coming Soon</span>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">📋</div>
+                    <div class="tool-title">Compliance Checklist Generator</div>
+                    <p class="tool-description">Generate custom compliance checklists for fire safety regulations based on your location and building type.</p>
+                    <div class="tool-tags">
+                        <span class="tag">NFPA</span>
+                        <span class="tag">ISO</span>
+                        <span class="tag">Local Codes</span>
+                    </div>
+                    <span class="tool-link coming-soon">Coming Soon</span>
+                </div>
+            </div>
+            
+            <div class="mt-12 p-6 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                <h2 class="text-xl font-semibold mb-4">💡 Suggest a Tool</h2>
+                <p class="mb-4">Is there a specific fire safety calculation tool you need? We're constantly developing new tools based on professional feedback.</p>
+                <p class="text-sm text-gray-600">Contact us with your suggestion, and we'll consider adding it to our development roadmap!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

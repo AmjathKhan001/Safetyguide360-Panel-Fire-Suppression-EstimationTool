@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Safety Blog - FireCalc Pro</title>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6687860250561653" crossorigin="anonymous"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .site-nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            color: #667eea;
+            font-size: 24px;
+        }
+
+        .brand-text {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+        }
+
+        .nav-link.active {
+            color: #ee5a24;
+            font-weight: 600;
+        }
+
+        .support-nav-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .blog-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .blog-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .read-more:hover {
+            color: #ff6b6b;
+        }
+        
+        .coming-soon-card {
+            opacity: 0.7;
+        }
+        
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .blog-subtitle {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4">
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="site-nav">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">🔥</span>
+                <span class="brand-text">FireCalc Pro</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Calculator</a>
+                <a href="tools.html" class="nav-link">Tools</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="privacy.html" class="nav-link">Privacy</a>
+                <a href="terms.html" class="nav-link">Terms</a>
+                <a href="affiliate.html" class="nav-link">Affiliate</a>
+                <a href="https://buymeacoffee.com/s.amjathkhan" target="_blank" class="support-nav-btn">
+                    <span>☕ Support</span>
+                </a>
+            </div>
+        </nav>
+        
+        <div class="content">
+            <div class="blog-header">
+                <h1>🔥 Fire Safety Engineering Blog</h1>
+                <p class="blog-subtitle">Expert insights, technical guides, and industry updates for fire protection professionals</p>
+            </div>
+            
+            <div class="blog-grid">
+                <!-- Featured Article -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        📊
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">TUTORIAL</span>
+                        <h2 class="blog-title">How to Accurately Calculate Fire Suppression Gas Requirements</h2>
+                        <p class="blog-excerpt">A step-by-step guide to calculating gas requirements for electrical panel fire suppression systems, including common mistakes to avoid.</p>
+                        <div class="blog-meta">
+                            <span>📅 Dec 2024</span>
+                            <span>⏱️ 8 min read</span>
+                        </div>
+                        <a href="#" class="read-more">Read Article →</a>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        ⚡
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">TECHNICAL</span>
+                        <h2 class="blog-title">Comparing Fire Suppression Agents: FK-5-1-12 vs NOVEC-1230 vs FM-200</h2>
+                        <p class="blog-excerpt">Detailed comparison of popular fire suppression gases including environmental impact, effectiveness, and cost considerations.</p>
+                        <div class="blog-meta">
+                            <span>📅 Nov 2024</span>
+                            <span>⏱️ 12 min read</span>
+                        </div>
+                        <a href="#" class="read-more">Read Article →</a>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        🏢
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">CASE STUDY</span>
+                        <h2 class="blog-title">Data Center Fire Protection: A Real-World Implementation Case Study</h2>
+                        <p class="blog-excerpt">Analysis of a successful fire suppression system installation in a Tier 3 data center, including challenges and solutions.</p>
+                        <div class="blog-meta">
+                            <span>📅 Oct 2024</span>
+                            <span>⏱️ 15 min read</span>
+                        </div>
+                        <a href="#" class="read-more">Read Article →</a>
+                    </div>
+                </div>
+                
+                <!-- Article 4 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        📈
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">INDUSTRY</span>
+                        <h2 class="blog-title">2025 Fire Safety Regulations Update: What Engineers Need to Know</h2>
+                        <p class="blog-excerpt">Overview of upcoming changes to fire safety codes and regulations affecting electrical panel protection systems.</p>
+                        <div class="blog-meta">
+                            <span>📅 Sep 2024</span>
+                            <span>⏱️ 10 min read</span>
+                        </div>
+                        <a href="#" class="read-more">Read Article →</a>
+                    </div>
+                </div>
+                
+                <!-- Article 5 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        🔧
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">HOW-TO</span>
+                        <h2 class="blog-title">Proper Installation of Detection Tubes in Electrical Panels</h2>
+                        <p class="blog-excerpt">Best practices for installing fire detection tubes to ensure reliable early warning and system activation.</p>
+                        <div class="blog-meta">
+                            <span>📅 Aug 2024</span>
+                            <span>⏱️ 6 min read</span>
+                        </div>
+                        <a href="#" class="read-more">Read Article →</a>
+                    </div>
+                </div>
+                
+                <!-- Article 6 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        💰
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">COST ANALYSIS</span>
+                        <h2 class="blog-title">Cost-Benefit Analysis: Clean Agent vs Water Mist Systems</h2>
+                        <p class="blog-excerpt">Comprehensive cost analysis comparing different fire suppression technologies for commercial applications.</p>
+                        <div class="blog-meta">
+                            <span>📅 Jul 2024</span>
+                            <span>⏱️ 14 min read</span>
+                        </div>
+                        <a href="#" class="read-more">Read Article →</a>
+                    </div>
+                </div>
+                
+                <!-- Coming Soon -->
+                <div class="blog-card coming-soon-card">
+                    <div class="blog-image">
+                        🔜
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category" style="background: #6c757d;">COMING SOON</span>
+                        <h2 class="blog-title">More Articles Coming Weekly</h2>
+                        <p class="blog-excerpt">We're regularly publishing new content on fire safety engineering, system design, and industry best practices.</p>
+                        <div class="blog-meta">
+                            <span>📅 Weekly Updates</span>
+                            <span>📚 Deep Technical Content</span>
+                        </div>
+                        <a href="#" class="read-more">Subscribe for Updates →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border-l-4 border-blue-500">
+                <h2 class="text-xl font-semibold mb-4">📬 Stay Updated</h2>
+                <p class="mb-4">Subscribe to get notified about new articles, tool updates, and industry insights.</p>
+                <div class="flex gap-4">
+                    <input type="email" placeholder="Your email address" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg">
+                    <button class="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold">Subscribe</button>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">No spam. Unsubscribe anytime. We respect your privacy.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

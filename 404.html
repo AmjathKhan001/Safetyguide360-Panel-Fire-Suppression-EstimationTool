@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - FireCalc Pro</title>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6687860250561653" crossorigin="anonymous"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        .error-icon {
+            font-size: 5em;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .error-message {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .quick-link {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1px solid #e9ecef;
+        }
+        
+        .quick-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+        
+        .home-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .error-code {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 20px;
+            font-family: monospace;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="error-icon">🔥</div>
+            <h1>Page Not Found</h1>
+            
+            <p class="error-message">
+                The page you're looking for doesn't exist or has been moved. 
+                Don't worry - our fire suppression calculator is still working perfectly!
+            </p>
+            
+            <div class="quick-links">
+                <a href="index.html" class="quick-link">🏠 Home</a>
+                <a href="tools.html" class="quick-link">🛠️ Tools</a>
+                <a href="blog.html" class="quick-link">📚 Blog</a>
+                <a href="privacy.html" class="quick-link">🔒 Privacy</a>
+            </div>
+            
+            <a href="index.html" class="home-button">
+                🔥 Go to Fire Suppression Calculator
+            </a>
+            
+            <div class="error-code">
+                Error 404 • The requested URL was not found
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Log 404 error to analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', '404_error', {
+                'page_location': window.location.href,
+                'page_referrer': document.referrer
+            });
+        }
+    </script>
+</body>
+</html>
