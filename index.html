@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>Panel Fire Suppression Calculator | Fire Safety Tools</title>
-    <meta name="title" content="Panel Fire Suppression Calculator | Fire Safety Tools">
-    <meta name="description" content="Professional fire suppression calculator for electrical panels. Calculate CO2, FM200, and Novec requirements with our free online tool.">
-    <meta name="keywords" content="fire suppression, fire safety calculator, electrical panel protection, CO2 calculator, FM200 calculator, fire safety tools">
+    <title>Panel Fire Suppression Calculator | Professional Fire Safety Tools</title>
+    <meta name="title" content="Panel Fire Suppression Calculator | Professional Fire Safety Tools">
+    <meta name="description" content="Free professional fire suppression calculator for electrical panels. Calculate CO2, FM200, and Novec requirements with our comprehensive safety tools collection.">
+    <meta name="keywords" content="fire suppression calculator, fire safety tools, electrical panel protection, CO2 calculator, FM200 calculator, fire extinguisher calculator, HSE tools">
     <meta name="author" content="Amjath Khan">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://panel-fire-suppression-calculator.vercel.app/">
-    <meta property="og:title" content="Panel Fire Suppression Calculator | Fire Safety Tools">
-    <meta property="og:description" content="Professional fire suppression calculator for electrical panels. Calculate CO2, FM200, and Novec requirements with our free online tool.">
-    <meta property="og:image" content="https://panel-fire-suppression-calculator.vercel.app/images/og-image.jpg">
+    <meta property="og:title" content="Panel Fire Suppression Calculator | Professional Fire Safety Tools">
+    <meta property="og:description" content="Free professional fire suppression calculator for electrical panels. Calculate CO2, FM200, and Novec requirements with our comprehensive safety tools collection.">
+    <meta property="og:image" content="https://panel-fire-suppression-calculator.vercel.app/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://panel-fire-suppression-calculator.vercel.app/">
-    <meta property="twitter:title" content="Panel Fire Suppression Calculator | Fire Safety Tools">
-    <meta property="twitter:description" content="Professional fire suppression calculator for electrical panels. Calculate CO2, FM200, and Novec requirements with our free online tool.">
-    <meta property="twitter:image" content="https://panel-fire-suppression-calculator.vercel.app/images/og-image.jpg">
+    <meta property="twitter:title" content="Panel Fire Suppression Calculator | Professional Fire Safety Tools">
+    <meta property="twitter:description" content="Free professional fire suppression calculator for electrical panels. Calculate CO2, FM200, and Novec requirements with our comprehensive safety tools collection.">
+    <meta property="twitter:image" content="https://panel-fire-suppression-calculator.vercel.app/og-image.jpg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://panel-fire-suppression-calculator.vercel.app/">
@@ -52,8 +52,14 @@
     }
     </script>
     
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6687860250561653" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Skip Link for Accessibility -->
@@ -63,16 +69,20 @@
     <nav>
         <div class="container nav-container">
             <div class="logo">
+                <i class="fas fa-fire-extinguisher brand-icon"></i>
                 <h2>Fire Safety Tools</h2>
             </div>
             <div class="mobile-menu-btn" id="mobileMenuBtn">
-                ☰
+                <i class="fas fa-bars"></i>
             </div>
             <ul id="navMenu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#calculator">Calculator</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#calculator" class="nav-link"><i class="fas fa-calculator"></i> Calculator</a></li>
+                <li><a href="#tools" class="nav-link"><i class="fas fa-tools"></i> Tools</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="https://buymeacoffee.com/s.amjathkhan" target="_blank" class="support-btn">
+                    <i class="fas fa-coffee"></i> Support
+                </a></li>
             </ul>
         </div>
     </nav>
@@ -80,8 +90,22 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Panel Fire Suppression Calculator</h1>
-            <p>Professional tool for calculating fire suppression requirements for electrical panels</p>
+            <h1><i class="fas fa-shield-alt"></i> Panel Fire Suppression Calculator</h1>
+            <p>Professional tool for calculating fire suppression requirements for electrical panels and comprehensive fire safety solutions</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-calculator"></i>
+                    <span>10+ Calculators</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-tools"></i>
+                    <span>15+ Safety Tools</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <span>Trusted by Professionals</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -89,138 +113,167 @@
     <main id="main-content">
         <section class="calculator-section" id="calculator">
             <div class="container">
-                <h2>Calculate Fire Suppression Requirements</h2>
+                <h2><i class="fas fa-calculator"></i> Fire Suppression Calculator</h2>
+                <p class="section-subtitle">Calculate exact requirements for your electrical panel fire protection system</p>
                 
-                <!-- Fire Suppression Calculator -->
                 <div class="calculator-container">
-                    <h3>Fire Suppression Calculator</h3>
+                    <div class="calculator-tabs">
+                        <button class="tab-btn active" data-tab="suppression">Suppression Calculator</button>
+                        <button class="tab-btn" data-tab="extinguisher">Extinguisher Calculator</button>
+                    </div>
                     
-                    <div class="calculator-row">
-                        <div class="input-group">
-                            <label for="roomLength">Room Length (m)</label>
-                            <input type="number" id="roomLength" placeholder="Enter length" min="0" step="0.01">
+                    <!-- Fire Suppression Calculator -->
+                    <div class="tab-content active" id="suppression-tab">
+                        <div class="calculator-row">
+                            <div class="input-group">
+                                <label for="roomLength"><i class="fas fa-ruler"></i> Room Length (m)</label>
+                                <input type="number" id="roomLength" placeholder="Enter length" min="0" step="0.01" value="5">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="roomWidth"><i class="fas fa-ruler"></i> Room Width (m)</label>
+                                <input type="number" id="roomWidth" placeholder="Enter width" min="0" step="0.01" value="4">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="roomHeight"><i class="fas fa-ruler-vertical"></i> Room Height (m)</label>
+                                <input type="number" id="roomHeight" placeholder="Enter height" min="0" step="0.01" value="3">
+                            </div>
                         </div>
                         
-                        <div class="input-group">
-                            <label for="roomWidth">Room Width (m)</label>
-                            <input type="number" id="roomWidth" placeholder="Enter width" min="0" step="0.01">
+                        <div class="calculator-row">
+                            <div class="input-group">
+                                <label for="fireClass"><i class="fas fa-fire"></i> Fire Class</label>
+                                <select id="fireClass">
+                                    <option value="A">Class A (Ordinary combustibles)</option>
+                                    <option value="B">Class B (Flammable liquids)</option>
+                                    <option value="C" selected>Class C (Electrical equipment)</option>
+                                    <option value="D">Class D (Combustible metals)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="suppressionType"><i class="fas fa-gas-pump"></i> Suppression Type</label>
+                                <select id="suppressionType">
+                                    <option value="co2">CO2 System</option>
+                                    <option value="fm200" selected>FM200 System</option>
+                                    <option value="novec">Novec 1230</option>
+                                    <option value="water">Water Mist</option>
+                                </select>
+                            </div>
                         </div>
                         
-                        <div class="input-group">
-                            <label for="roomHeight">Room Height (m)</label>
-                            <input type="number" id="roomHeight" placeholder="Enter height" min="0" step="0.01">
-                        </div>
-                    </div>
-                    
-                    <div class="calculator-row">
-                        <div class="input-group">
-                            <label for="fireClass">Fire Class</label>
-                            <select id="fireClass">
-                                <option value="A">Class A (Ordinary combustibles)</option>
-                                <option value="B">Class B (Flammable liquids)</option>
-                                <option value="C">Class C (Electrical equipment)</option>
-                                <option value="D">Class D (Combustible metals)</option>
-                            </select>
+                        <div class="calculator-row">
+                            <div class="input-group full-width">
+                                <label for="panelType"><i class="fas fa-bolt"></i> Electrical Panel Type</label>
+                                <select id="panelType">
+                                    <option value="low_voltage">Low Voltage Panel (≤1000V)</option>
+                                    <option value="medium_voltage" selected>Medium Voltage Panel (1kV-35kV)</option>
+                                    <option value="high_voltage">High Voltage Panel (>35kV)</option>
+                                    <option value="control_panel">Control Panel</option>
+                                    <option value="distribution">Distribution Board</option>
+                                </select>
+                            </div>
                         </div>
                         
-                        <div class="input-group">
-                            <label for="suppressionType">Suppression Type</label>
-                            <select id="suppressionType">
-                                <option value="co2">CO2 System</option>
-                                <option value="fm200">FM200 System</option>
-                                <option value="novec">Novec 1230</option>
-                                <option value="water">Water Mist</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="calculator-row">
-                        <div class="input-group full-width">
-                            <label for="panelType">Electrical Panel Type</label>
-                            <select id="panelType">
-                                <option value="low_voltage">Low Voltage Panel (≤1000V)</option>
-                                <option value="medium_voltage">Medium Voltage Panel (1kV-35kV)</option>
-                                <option value="high_voltage">High Voltage Panel (>35kV)</option>
-                                <option value="control_panel">Control Panel</option>
-                                <option value="distribution">Distribution Board</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="button-group">
-                        <button id="calculateBtn" class="btn calculate-btn">Calculate Requirements</button>
-                        <button id="resetBtn" class="btn reset-btn">Reset</button>
-                    </div>
-                    
-                    <div class="results" id="results">
-                        <h3>Results</h3>
-                        <div class="results-grid">
-                            <div class="result-card">
-                                <h4>Room Volume</h4>
-                                <p id="roomVolume">0 m³</p>
-                            </div>
-                            <div class="result-card">
-                                <h4>Required Agent Quantity</h4>
-                                <p id="agentQuantity">0 kg</p>
-                            </div>
-                            <div class="result-card">
-                                <h4>Number of Cylinders</h4>
-                                <p id="cylinderCount">0</p>
-                            </div>
-                            <div class="result-card">
-                                <h4>Estimated Cost</h4>
-                                <p id="estimatedCost">$0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Fire Extinguisher Calculator -->
-        <section class="extinguisher-section">
-            <div class="container">
-                <div class="calculator-container">
-                    <h3>Fire Extinguisher Calculator</h3>
-                    
-                    <div class="calculator-row">
-                        <div class="input-group">
-                            <label for="areaSize">Area Size (m²)</label>
-                            <input type="number" id="areaSize" placeholder="Enter area" min="0" step="0.01">
+                        <div class="button-group">
+                            <button id="calculateBtn" class="btn calculate-btn">
+                                <i class="fas fa-calculator"></i> Calculate Requirements
+                            </button>
+                            <button id="resetBtn" class="btn reset-btn">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                            <button id="exportBtn" class="btn export-btn">
+                                <i class="fas fa-file-pdf"></i> Export PDF
+                            </button>
                         </div>
                         
-                        <div class="input-group">
-                            <label for="hazardLevel">Hazard Level</label>
-                            <select id="hazardLevel">
-                                <option value="low">Low Hazard (Offices)</option>
-                                <option value="medium">Medium Hazard (Workshops)</option>
-                                <option value="high">High Hazard (Chemical Storage)</option>
-                            </select>
+                        <div class="results" id="results">
+                            <h3><i class="fas fa-chart-bar"></i> Calculation Results</h3>
+                            <div class="results-grid">
+                                <div class="result-card">
+                                    <div class="result-icon"><i class="fas fa-cube"></i></div>
+                                    <h4>Room Volume</h4>
+                                    <p id="roomVolume">60 m³</p>
+                                </div>
+                                <div class="result-card">
+                                    <div class="result-icon"><i class="fas fa-weight-hanging"></i></div>
+                                    <h4>Agent Quantity</h4>
+                                    <p id="agentQuantity">12 kg</p>
+                                </div>
+                                <div class="result-card">
+                                    <div class="result-icon"><i class="fas fa-gas-pump"></i></div>
+                                    <h4>Cylinders Required</h4>
+                                    <p id="cylinderCount">1</p>
+                                </div>
+                                <div class="result-card">
+                                    <div class="result-icon"><i class="fas fa-dollar-sign"></i></div>
+                                    <h4>Estimated Cost</h4>
+                                    <p id="estimatedCost">$2,500</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="button-group">
-                        <button id="calculateExtBtn" class="btn calculate-btn">Calculate Extinguishers</button>
-                    </div>
-                    
-                    <div class="results" id="extinguisherResults">
-                        <h3>Extinguisher Requirements</h3>
-                        <div class="results-grid">
-                            <div class="result-card">
-                                <h4>Minimum Required</h4>
-                                <p id="minExtinguishers">0 units</p>
+                    <!-- Fire Extinguisher Calculator -->
+                    <div class="tab-content" id="extinguisher-tab">
+                        <div class="calculator-row">
+                            <div class="input-group">
+                                <label for="areaSize"><i class="fas fa-vector-square"></i> Area Size (m²)</label>
+                                <input type="number" id="areaSize" placeholder="Enter area" min="0" step="0.01" value="100">
                             </div>
-                            <div class="result-card">
-                                <h4>Recommended Type</h4>
-                                <p id="recommendedType">ABC Powder</p>
+                            
+                            <div class="input-group">
+                                <label for="hazardLevel"><i class="fas fa-exclamation-triangle"></i> Hazard Level</label>
+                                <select id="hazardLevel">
+                                    <option value="low">Low Hazard (Offices)</option>
+                                    <option value="medium" selected>Medium Hazard (Workshops)</option>
+                                    <option value="high">High Hazard (Chemical Storage)</option>
+                                </select>
                             </div>
-                            <div class="result-card">
-                                <h4>Coverage Area</h4>
-                                <p id="coverageArea">0 m²</p>
+                        </div>
+                        
+                        <div class="calculator-row">
+                            <div class="input-group full-width">
+                                <label for="buildingType"><i class="fas fa-building"></i> Building Type</label>
+                                <select id="buildingType">
+                                    <option value="commercial">Commercial Building</option>
+                                    <option value="industrial" selected>Industrial Facility</option>
+                                    <option value="residential">Residential Building</option>
+                                    <option value="warehouse">Warehouse/Storage</option>
+                                </select>
                             </div>
-                            <div class="result-card">
-                                <h4>Placement Distance</h4>
-                                <p id="placementDistance">0 m</p>
+                        </div>
+                        
+                        <div class="button-group">
+                            <button id="calculateExtBtn" class="btn calculate-btn">
+                                <i class="fas fa-calculator"></i> Calculate Extinguishers
+                            </button>
+                        </div>
+                        
+                        <div class="results" id="extinguisherResults">
+                            <h3><i class="fas fa-fire-extinguisher"></i> Extinguisher Requirements</h3>
+                            <div class="results-grid">
+                                <div class="result-card">
+                                    <div class="result-icon"><i class="fas fa-calculator"></i></div>
+                                    <h4>Minimum Required</h4>
+                                    <p id="minExtinguishers">4 units</p>
+                                </div>
+                                <div class="result-card">
+                                    <div class="result-icon"><i class="fas fa-fire"></i></div>
+                                    <h4>Recommended Type</h4>
+                                    <p id="recommendedType">ABC Powder</p>
+                                </div>
+                                <div class="result-card">
+                                    <div class="result-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+                                    <h4>Coverage Area</h4>
+                                    <p id="coverageArea">50 m²</p>
+                                </div>
+                                <div class="result-card">
+                                    <div class="result-icon"><i class="fas fa-walking"></i></div>
+                                    <h4>Placement Distance</h4>
+                                    <p id="placementDistance">15 m</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -231,73 +284,135 @@
         <!-- Tools Explorer Section -->
         <section class="tools-section" id="tools">
             <div class="container">
-                <h2>Explore More Safety Tools</h2>
+                <h2><i class="fas fa-tools"></i> Explore More Safety Tools</h2>
+                <p class="section-subtitle">A comprehensive collection of professional fire safety and HSE tools</p>
                 
                 <!-- HSE Tools -->
                 <div class="tools-category">
-                    <h3>HSE Tools</h3>
+                    <h3><i class="fas fa-heartbeat"></i> HSE Tools</h3>
                     <div class="tools-grid">
                         <a href="https://www.hsecalculator.com/" class="tool-card" target="_blank" rel="noopener">
+                            <div class="tool-icon"><i class="fas fa-calculator"></i></div>
                             <h4>HSE Calculators</h4>
-                            <p>Comprehensive health and safety calculators</p>
+                            <p>Comprehensive health and safety calculators for workplace compliance</p>
+                            <div class="tool-tags">
+                                <span class="tag">Safety</span>
+                                <span class="tag">Compliance</span>
+                            </div>
                         </a>
                         <a href="https://hse-toolkit.vercel.app/" class="tool-card" target="_blank" rel="noopener">
+                            <div class="tool-icon"><i class="fas fa-briefcase-medical"></i></div>
                             <h4>HSE Toolkit</h4>
-                            <p>Health, Safety & Environment tools collection</p>
+                            <p>Complete Health, Safety & Environment tools collection</p>
+                            <div class="tool-tags">
+                                <span class="tag">Tools</span>
+                                <span class="tag">HSE</span>
+                            </div>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Fire Safety Tools -->
                 <div class="tools-category">
-                    <h3>Fire Safety Tools</h3>
+                    <h3><i class="fas fa-fire"></i> Fire Safety Tools</h3>
                     <div class="tools-grid">
                         <a href="https://safetyguide360-ceilingmounted-firee.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <h4>Ceiling Mounted Fire Extinguisher Estimation</h4>
+                            <div class="tool-icon"><i class="fas fa-cloud"></i></div>
+                            <h4>Ceiling Mounted Fire Extinguisher</h4>
                             <p>Calculate ceiling mounted extinguisher requirements</p>
+                            <div class="tool-tags">
+                                <span class="tag">Ceiling</span>
+                                <span class="tag">Extinguisher</span>
+                            </div>
                         </a>
                         <a href="https://www.firesafetytool.com/" class="tool-card" target="_blank" rel="noopener">
+                            <div class="tool-icon"><i class="fas fa-fire-extinguisher"></i></div>
                             <h4>Fire Safety Calculators</h4>
-                            <p>Various fire safety calculation tools</p>
+                            <p>Various fire safety calculation tools for professionals</p>
+                            <div class="tool-tags">
+                                <span class="tag">Calculators</span>
+                                <span class="tag">Safety</span>
+                            </div>
                         </a>
                         <a href="https://fire-extinguisher-audit-tool.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <h4>Fire Extinguisher Health Checkup Audit</h4>
-                            <p>Audit tool for fire extinguisher maintenance</p>
+                            <div class="tool-icon"><i class="fas fa-clipboard-check"></i></div>
+                            <h4>Fire Extinguisher Audit Tool</h4>
+                            <p>Audit tool for fire extinguisher maintenance and compliance</p>
+                            <div class="tool-tags">
+                                <span class="tag">Audit</span>
+                                <span class="tag">Maintenance</span>
+                            </div>
                         </a>
                         <a href="https://safetyguide360-firesafety-assessmen.vercel.app/" class="tool-card" target="_blank" rel="noopener">
+                            <div class="tool-icon"><i class="fas fa-clipboard-list"></i></div>
                             <h4>Fire Safety Assessment Tool</h4>
                             <p>Complete fire safety assessment system</p>
+                            <div class="tool-tags">
+                                <span class="tag">Assessment</span>
+                                <span class="tag">Safety</span>
+                            </div>
                         </a>
                         <a href="https://fire-extinguisher-calculator.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <h4>Fire Extinguisher Estimation Tool</h4>
-                            <p>Calculate fire extinguisher requirements</p>
+                            <div class="tool-icon"><i class="fas fa-calculator"></i></div>
+                            <h4>Fire Extinguisher Calculator</h4>
+                            <p>Calculate fire extinguisher requirements for any space</p>
+                            <div class="tool-tags">
+                                <span class="tag">Calculator</span>
+                                <span class="tag">Planning</span>
+                            </div>
                         </a>
                         <a href="https://kitchen-fire-suppression-calculator.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <h4>Kitchen Suppression System Estimation</h4>
+                            <div class="tool-icon"><i class="fas fa-utensils"></i></div>
+                            <h4>Kitchen Suppression Calculator</h4>
                             <p>Kitchen fire suppression system calculator</p>
+                            <div class="tool-tags">
+                                <span class="tag">Kitchen</span>
+                                <span class="tag">Commercial</span>
+                            </div>
                         </a>
                         <a href="https://fm-200-room-flooding-system-calcula.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <h4>Room Flooding System Estimation</h4>
+                            <div class="tool-icon"><i class="fas fa-flood"></i></div>
+                            <h4>Room Flooding System</h4>
                             <p>FM-200 room flooding system calculator</p>
+                            <div class="tool-tags">
+                                <span class="tag">FM200</span>
+                                <span class="tag">Flooding</span>
+                            </div>
                         </a>
-                        <a href="https://panel-fire-suppression-calculator.vercel.app/index.html" class="tool-card" target="_blank" rel="noopener">
-                            <h4>Panel Fire Suppression Calculator</h4>
+                        <a href="https://panel-fire-suppression-calculator.vercel.app/" class="tool-card featured-tool">
+                            <div class="featured-badge">Current Tool</div>
+                            <div class="tool-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h4>Panel Fire Suppression</h4>
                             <p>Electrical panel fire suppression calculator</p>
+                            <div class="tool-tags">
+                                <span class="tag">Electrical</span>
+                                <span class="tag">Panel</span>
+                            </div>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Utility Tools -->
                 <div class="tools-category">
-                    <h3>Utility Tools</h3>
+                    <h3><i class="fas fa-cogs"></i> Utility Tools</h3>
                     <div class="tools-grid">
                         <a href="https://www.dailysmarttool.com/" class="tool-card" target="_blank" rel="noopener">
-                            <h4>Utility Tools</h4>
-                            <p>Daily useful tools collection</p>
+                            <div class="tool-icon"><i class="fas fa-toolbox"></i></div>
+                            <h4>Daily Smart Tools</h4>
+                            <p>Collection of daily useful tools for professionals</p>
+                            <div class="tool-tags">
+                                <span class="tag">Utilities</span>
+                                <span class="tag">Productivity</span>
+                            </div>
                         </a>
                         <a href="https://www.webtoolsdaily.com/" class="tool-card" target="_blank" rel="noopener">
+                            <div class="tool-icon"><i class="fas fa-globe"></i></div>
                             <h4>Web Tools Daily</h4>
-                            <p>Daily web tools and utilities</p>
+                            <p>Daily web tools and utilities for developers</p>
+                            <div class="tool-tags">
+                                <span class="tag">Web Tools</span>
+                                <span class="tag">Developers</span>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -310,41 +425,60 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Contact & Feedback</h3>
-                    <p>Email: <a href="mailto:contact@amjathkhan.com">contact@amjathkhan.com</a></p>
-                    <p>Phone: <a href="tel:+919750816163">+91-9750816163</a></p>
-                    <p>Website: <a href="https://www.amjathkhan.com" target="_blank" rel="noopener">www.amjathkhan.com</a></p>
+                    <h3><i class="fas fa-envelope"></i> Contact & Feedback</h3>
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:contact@amjathkhan.com">contact@amjathkhan.com</a></p>
+                    <p><i class="fas fa-phone"></i> Phone: <a href="tel:+919750816163">+91-9750816163</a></p>
+                    <p><i class="fas fa-globe"></i> Website: <a href="https://www.amjathkhan.com" target="_blank" rel="noopener">www.amjathkhan.com</a></p>
+                    <div class="footer-links">
+                        <a href="privacy.html"><i class="fas fa-lock"></i> Privacy Policy</a>
+                        <a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                    </div>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Connect With Me</h3>
+                    <h3><i class="fas fa-share-alt"></i> Connect With Me</h3>
                     <div class="social-links">
-                        <a href="https://bsky.app/profile/amjathkhan.bsky.social" target="_blank" rel="noopener">Bluesky</a>
-                        <a href="https://www.facebook.com/Amjathkhan.s" target="_blank" rel="noopener">Facebook</a>
-                        <a href="https://www.instagram.com/amjathkhan_official/" target="_blank" rel="noopener">Instagram</a>
-                        <a href="https://x.com/amjikhan" target="_blank" rel="noopener">Twitter/X</a>
-                        <a href="https://www.linkedin.com/in/amjathkhan-shiekusman/" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://bsky.app/profile/amjathkhan.bsky.social" target="_blank" rel="noopener" title="Bluesky">
+                            <i class="fab fa-bluesky"></i> Bluesky
+                        </a>
+                        <a href="https://www.facebook.com/Amjathkhan.s" target="_blank" rel="noopener" title="Facebook">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/amjathkhan_official/" target="_blank" rel="noopener" title="Instagram">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://x.com/amjikhan" target="_blank" rel="noopener" title="Twitter/X">
+                            <i class="fab fa-twitter"></i> Twitter/X
+                        </a>
+                        <a href="https://www.linkedin.com/in/amjathkhan-shiekusman/" target="_blank" rel="noopener" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
                     </div>
                 </div>
                 
                 <div class="footer-section">
                     <div class="visitor-counter">
-                        <h3>Website Visitors</h3>
-                        <div id="visitorCount">Loading...</div>
+                        <h3><i class="fas fa-eye"></i> Website Visitors</h3>
+                        <div class="counter-number" id="visitorCount">1,254</div>
+                        <p class="counter-label">Real-time visitor count</p>
+                    </div>
+                    <div class="support-footer">
+                        <a href="https://buymeacoffee.com/s.amjathkhan" target="_blank" class="support-btn">
+                            <i class="fas fa-coffee"></i> Buy Me a Coffee
+                        </a>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; <span id="currentYear"></span> Fire Safety Tools. All rights reserved.</p>
+                <p class="footer-note">Professional fire safety tools for engineers, safety officers, and facility managers</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript Files -->
-    <script src="calculator.js"></script>
-    <script src="fire-extinguisher.js"></script>
+    <script src="calculator-script.js"></script>
     <script src="visitor-counter.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
