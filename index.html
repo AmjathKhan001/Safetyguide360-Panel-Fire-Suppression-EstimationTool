@@ -46,7 +46,7 @@
     </script>
     
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22> </text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     
     <!-- AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6687860250561653" crossorigin="anonymous"></script>
@@ -351,59 +351,52 @@
 
         .dimension-line {
             position: absolute;
-            background: #0099e5;
-        }
-
-        .dimension-text {
-            position: absolute;
-            background: white;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 12px;
-            font-weight: bold;
-            color: #0099e5;
-            border: 1px solid #0099e5;
+            background: #ff4c4c;
         }
 
         .horizontal-line {
             height: 2px;
-            width: 100px;
         }
 
         .vertical-line {
             width: 2px;
-            height: 80px;
         }
 
         .dimension-arrow {
             position: absolute;
             width: 0;
             height: 0;
-            border-style: solid;
+            border: 5px solid transparent;
         }
 
         .arrow-left {
-            border-width: 5px 8px 5px 0;
-            border-color: transparent #0099e5 transparent transparent;
-            left: -8px;
-            top: -4px;
+            border-right-color: #ff4c4c;
         }
 
         .arrow-right {
-            border-width: 5px 0 5px 8px;
-            border-color: transparent transparent transparent #0099e5;
-            right: -8px;
-            top: -4px;
+            border-left-color: #ff4c4c;
+        }
+
+        .dimension-text {
+            position: absolute;
+            font-size: 11px;
+            font-weight: bold;
+            color: #ff4c4c;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2px 4px;
+            border-radius: 3px;
         }
 
         .dimension-horizontal {
-            top: -25px;
-            left: 50px;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .dimension-vertical {
-            left: -25px;
-            top: 30px;
+            left: -45px;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .input-explanation {
@@ -779,7 +772,6 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            display: none;
             text-decoration: none;
             transition: transform 0.2s;
             display: flex;
@@ -1470,6 +1462,13 @@
             margin: 0;
         }
 
+        .counter-loading {
+            font-size: 1em;
+            color: #aaa;
+            margin: 15px 0;
+            display: none;
+        }
+
         .footer-links {
             text-align: center;
             padding: 20px 0;
@@ -1577,10 +1576,6 @@
             
             .calculator {
                 padding: 20px;
-            }
-            
-            .panel-visual {
-                height: 200px;
             }
             
             .config-grid {
@@ -1873,7 +1868,7 @@
             </div>
 
             <div class="user-info-section">
-                <h2><i class="fas fa-user"></i> User Information </h2>
+                <h2><i class="fas fa-user"></i> User Information (Mandatory)</h2>
                 <div class="user-info-grid">
                     <div class="input-group">
                         <label for="userName" class="required-field"><i class="fas fa-user-circle"></i> Full Name:</label>
@@ -2017,7 +2012,7 @@
                 </div>
                 
                 <div id="panelsContainer">
-                    <!-- Panels will be added here -->
+                    <!-- Panels will be added here dynamically -->
                 </div>
                 
                 <div class="compartment-note">
@@ -2155,197 +2150,793 @@
                     <h3><i class="fas fa-money-bill-wave"></i> Total Cost Estimation</h3>
                     <div class="cost-breakdown">
                         <div class="cost-item">
-                            <span class="cost-label">Equipment Cost (Cylinders, Tube, Accessories)</span>
-                            <span class="cost-amount" id="equipmentCost">₹0</span>
+                            <span class="cost-label">Fire Suppression Gas:</span>
+                            <span class="cost-amount" id="gasCost">₹0</span>
                         </div>
                         <div class="cost-item">
-                            <span class="cost-label">Installation & Commissioning Cost (per system)</span>
-                            <span class="cost-amount" id="installationCost">₹0</span>
+                            <span class="cost-label">Detection System:</span>
+                            <span class="cost-amount" id="detectionCost">₹0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label">Control Components:</span>
+                            <span class="cost-amount" id="controlCost">₹0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label">Accessories:</span>
+                            <span class="cost-amount" id="accessoriesCost">₹0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label">Installation Labor:</span>
+                            <span class="cost-amount" id="laborCost">₹0</span>
                         </div>
                         <div class="cost-item total">
-                            <span class="cost-label">TOTAL ESTIMATED COST</span>
+                            <span class="cost-label">Total Estimated Cost:</span>
                             <span class="cost-amount" id="totalCost">₹0</span>
                         </div>
                     </div>
-                    <p class="disclaimer">
-                        <i class="fas fa-exclamation-circle"></i> Note: This is an approximation. Final cost may vary based on site conditions, OEM, and chosen accessories.
-                    </p>
-                </div>
-
-                <div class="result-card oem-section" id="oemSection">
-                    <h3><i class="fas fa-industry"></i> Recommended OEM Suppliers</h3>
-                    <div id="oemList">
-                        <!-- OEMs will be listed here -->
+                    <div class="disclaimer">
+                        <p><i class="fas fa-exclamation-triangle"></i> Note: This is an estimated cost. Final pricing may vary based on site conditions, additional accessories, and actual material costs.</p>
                     </div>
                 </div>
+
+                <div class="result-card oem-section">
+                    <h3><i class="fas fa-industry"></i> Recommended OEM Suppliers</h3>
+                    <div class="oem-item">
+                        <div class="oem-name"><i class="fas fa-building"></i> Kanex Fire Systems</div>
+                        <div class="oem-contact"><i class="fas fa-phone"></i> Contact: +91-9876543210</div>
+                        <div class="oem-address"><i class="fas fa-map-marker-alt"></i> Address: Mumbai, India</div>
+                        <div class="oem-products"><i class="fas fa-box"></i> Products: Fire suppression cylinders, detection tubes</div>
+                    </div>
+                    <div class="oem-item">
+                        <div class="oem-name"><i class="fas fa-building"></i> Firetrace International</div>
+                        <div class="oem-contact"><i class="fas fa-phone"></i> Contact: +1-800-555-0123</div>
+                        <div class="oem-address"><i class="fas fa-map-marker-alt"></i> Address: Arizona, USA</div>
+                        <div class="oem-products"><i class="fas fa-box"></i> Products: Complete fire suppression systems</div>
+                    </div>
+                    <div class="oem-item">
+                        <div class="oem-name"><i class="fas fa-building"></i> Rotarex Firetec</div>
+                        <div class="oem-contact"><i class="fas fa-phone"></i> Contact: +352-2756-1</div>
+                        <div class="oem-address"><i class="fas fa-map-marker-alt"></i> Address: Luxembourg, Europe</div>
+                        <div class="oem-products"><i class="fas fa-box"></i> Products: Gas cylinders, valves, and regulators</div>
+                    </div>
+                </div>
+
+                <div class="notes">
+                    <h3><i class="fas fa-sticky-note"></i> Important Notes & Assumptions</h3>
+                    <ul>
+                        <li>Gas quantity calculation is based on NFPA 2001 standards for clean agent fire suppression systems</li>
+                        <li>Design concentration assumed at 7% for FK-5-1-12 in electrical panel applications</li>
+                        <li>Detection tube routing assumes 20% extra length for bends and fittings</li>
+                        <li>Costs include basic installation but exclude civil works, structural modifications, and permit fees</li>
+                        <li>Prices are indicative and subject to change based on market conditions and supplier negotiations</li>
+                        <li>For precise requirements, consult with certified fire safety engineers</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="notes">
-                <h3><i class="fas fa-sticky-note"></i> Technical Notes & Assumptions</h3>
-                <ul>
-                    <li>Calculation based on NFPA 2001:2022 standards</li>
-                    <li>Includes 50% additional safety capacity</li>
-                    <li>Fire detection tube quantity may vary as per actual site installation</li>
-                    <li>Extra detection tube will be on chargeable basis</li>
-                    <li>GST and freight charges extra</li>
-                    <li>2 core x 1.5 cable included (1.5 meters per system)</li>
-                    <li><strong>Fire Detection Tube Rules:</strong></li>
-                    <li>- Below 18 meters: No T-connectors or End plugs required</li>
-                    <li>- Above 18 meters: 1 T-connector + 1 End plug per 15 meters</li>
-                    <li><strong>Compartment Dimensions:</strong> Enter the largest individual compartment size within each panel</li>
-                    <li><strong>International Pricing:</strong> 50% additional cost for countries outside India</li>
-                </ul>
-            </div>
-
-            <!-- Tools Explorer Section -->
             <div class="tools-explorer-section">
                 <h2><i class="fas fa-tools"></i> Explore More Safety Tools</h2>
-                <p class="section-subtitle">A comprehensive collection of professional fire safety and HSE tools designed for engineers, safety officers, and facility managers</p>
+                <p class="section-subtitle">Enhance your safety engineering workflow with our comprehensive collection of professional tools and calculators</p>
                 
-                <!-- HSE Tools -->
                 <div class="tools-category">
-                    <h3><i class="fas fa-user-md"></i> HSE Tools</h3>
+                    <h3><i class="fas fa-calculator"></i> Fire Safety Calculators</h3>
                     <div class="tools-grid">
-                        <a href="https://www.hsecalculator.com/" class="tool-card" target="_blank" rel="noopener">
-                            <div class="tool-icon"><i class="fas fa-calculator"></i></div>
-                            <h4>HSE Calculators</h4>
-                            <p>Comprehensive health and safety calculators for workplace compliance and risk assessment</p>
+                        <a href="tools.html#fire-hydrant-calc" class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-fire-hydrant"></i></div>
+                            <h4>Fire Hydrant Flow Calculator</h4>
+                            <p>Calculate water flow requirements and hydrant spacing for fire protection systems</p>
                         </a>
-                        <a href="https://hse-toolkit.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <div class="tool-icon"><i class="fas fa-briefcase-medical"></i></div>
-                            <h4>HSE Toolkit</h4>
-                            <p>Complete Health, Safety & Environment tools collection for professionals</p>
+                        
+                        <a href="tools.html#sprinkler-calc" class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-shower"></i></div>
+                            <h4>Sprinkler System Calculator</h4>
+                            <p>Design and calculate sprinkler systems with automatic density and coverage calculations</p>
+                        </a>
+                        
+                        <a href="tools.html#smoke-detection" class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-smog"></i></div>
+                            <h4>Smoke Detector Spacing Tool</h4>
+                            <p>Calculate optimal smoke detector placement and spacing for various room types</p>
+                        </a>
+                        
+                        <a href="tools.html#fire-alarm-calc" class="tool-card featured-tool">
+                            <div class="featured-badge">Featured</div>
+                            <div class="tool-icon"><i class="fas fa-bell"></i></div>
+                            <h4>Fire Alarm System Calculator</h4>
+                            <p>Complete fire alarm system design with load calculations and battery sizing</p>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Fire Safety Tools -->
                 <div class="tools-category">
-                    <h3><i class="fas fa-fire"></i> Fire Safety Tools</h3>
+                    <h3><i class="fas fa-ruler-combined"></i> Electrical Safety Tools</h3>
                     <div class="tools-grid">
-                        <a href="https://safetyguide360-ceilingmounted-firee.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <div class="tool-icon"><i class="fas fa-cloud"></i></div>
-                            <h4>Ceiling Mounted Fire Extinguisher</h4>
-                            <p>Calculate ceiling mounted extinguisher requirements for commercial spaces</p>
+                        <a href="tools.html#earthing-calc" class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-bolt"></i></div>
+                            <h4>Earthing System Calculator</h4>
+                            <p>Calculate earthing requirements and electrode spacing for electrical systems</p>
                         </a>
-                        <a href="https://www.firesafetytool.com/" class="tool-card" target="_blank" rel="noopener">
-                            <div class="tool-icon"><i class="fas fa-fire-extinguisher"></i></div>
-                            <h4>Fire Safety Calculators</h4>
-                            <p>Various fire safety calculation tools for professionals and inspectors</p>
+                        
+                        <a href="tools.html#cable-sizing" class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-plug"></i></div>
+                            <h4>Cable Sizing Calculator</h4>
+                            <p>Calculate cable size, voltage drop, and current carrying capacity</p>
                         </a>
-                        <a href="https://fire-extinguisher-audit-tool.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <div class="tool-icon"><i class="fas fa-clipboard-check"></i></div>
-                            <h4>Fire Extinguisher Audit Tool</h4>
-                            <p>Audit tool for fire extinguisher maintenance and compliance tracking</p>
-                        </a>
-                        <a href="https://safetyguide360-firesafety-assessmen.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <div class="tool-icon"><i class="fas fa-clipboard-list"></i></div>
-                            <h4>Fire Safety Assessment Tool</h4>
-                            <p>Complete fire safety assessment system for buildings and facilities</p>
-                        </a>
-                        <a href="https://fire-extinguisher-calculator.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <div class="tool-icon"><i class="fas fa-calculator"></i></div>
-                            <h4>Fire Extinguisher Calculator</h4>
-                            <p>Calculate fire extinguisher requirements for any space or building type</p>
-                        </a>
-                        <a href="https://kitchen-fire-suppression-calculator.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <div class="tool-icon"><i class="fas fa-utensils"></i></div>
-                            <h4>Kitchen Suppression Calculator</h4>
-                            <p>Kitchen fire suppression system calculator for commercial kitchens</p>
-                        </a>
-                        <a href="https://fm-200-room-flooding-system-calcula.vercel.app/" class="tool-card" target="_blank" rel="noopener">
-                            <div class="tool-icon"><i class="fas fa-flood"></i></div>
-                            <h4>Room Flooding System</h4>
-                            <p>FM-200 room flooding system calculator for server rooms and data centers</p>
-                        </a>
-                        <a href="https://panel-fire-suppression-calculator.vercel.app/index.html" class="tool-card featured-tool">
-                            <div class="featured-badge">Current Tool</div>
-                            <div class="tool-icon"><i class="fas fa-shield-alt"></i></div>
-                            <h4>Panel Fire Suppression</h4>
-                            <p>Electrical panel fire suppression calculator for industrial applications</p>
+                        
+                        <a href="tools.html#lightning-protection" class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-bolt-lightning"></i></div>
+                            <h4>Lightning Protection Calculator</h4>
+                            <p>Design lightning protection systems with risk assessment calculations</p>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Utility Tools -->
                 <div class="tools-category">
-                    <h3><i class="fas fa-cogs"></i> Utility Tools</h3>
+                    <h3><i class="fas fa-industry"></i> Industrial Safety Tools</h3>
                     <div class="tools-grid">
-                        <a href="https://www.dailysmarttool.com/" class="tool-card" target="_blank" rel="noopener">
-                            <div class="tool-icon"><i class="fas fa-toolbox"></i></div>
-                            <h4>Daily Smart Tools</h4>
-                            <p>Collection of daily useful tools for professionals and productivity</p>
+                        <a href="tools.html#hazard-assessment" class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            <h4>Hazard Assessment Tool</h4>
+                            <p>Conduct comprehensive hazard identification and risk assessments</p>
                         </a>
-                        <a href="https://www.webtoolsdaily.com/" class="tool-card" target="_blank" rel="noopener">
-                            <div class="tool-icon"><i class="fas fa-globe"></i></div>
-                            <h4>Web Tools Daily</h4>
-                            <p>Daily web tools and utilities for developers and digital creators</p>
+                        
+                        <a href="tools.html#ppe-calc" class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-hard-hat"></i></div>
+                            <h4>PPE Requirement Calculator</h4>
+                            <p>Calculate personal protective equipment requirements for different job roles</p>
+                        </a>
+                        
+                        <a href="tools.html#noise-calc" class="tool-card">
+                            <div class="tool-icon"><i class="fas fa-volume-up"></i></div>
+                            <h4>Noise Exposure Calculator</h4>
+                            <p>Calculate noise exposure levels and recommend hearing protection</p>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="page-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3><i class="fas fa-envelope"></i> Contact & Feedback</h3>
-                <p><strong><i class="fas fa-envelope"></i> Email:</strong> <a href="mailto:contact@amjathkhan.com">contact@amjathkhan.com</a></p>
-                <p><strong><i class="fas fa-phone"></i> Phone:</strong> <a href="tel:+919750816163">+91-9750816163</a></p>
-                <p><strong><i class="fas fa-globe"></i> Website:</strong> <a href="https://www.amjathkhan.com" target="_blank">www.amjathkhan.com</a></p>
+
+        <footer class="page-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-fire"></i> FireCalc Pro</h3>
+                    <p>Professional fire safety calculation tools for engineers, contractors, and safety professionals.</p>
+                    <p>Our tools help you design compliant fire protection systems with accurate calculations and cost estimations.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <a href="index.html"><i class="fas fa-calculator"></i> Calculator</a>
+                    <a href="tools.html"><i class="fas fa-tools"></i> Tools Explorer</a>
+                    <a href="blog.html"><i class="fas fa-blog"></i> Blog & Articles</a>
+                    <a href="privacy.html"><i class="fas fa-lock"></i> Privacy Policy</a>
+                    <a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                    <a href="affiliate.html"><i class="fas fa-handshake"></i> Affiliate Program</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3><i class="fas fa-share-alt"></i> Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/amjath-khan" target="_blank">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://twitter.com/amjathkhan" target="_blank">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="https://github.com/amjathkhan" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="mailto:contact@amjathkhan.com">
+                            <i class="fas fa-envelope"></i> Email
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <div class="visitor-counter">
+                        <h3><i class="fas fa-users"></i> Website Visitors</h3>
+                        <div class="counter-loading" id="counterLoading">
+                            <i class="fas fa-spinner fa-spin"></i> Loading visitor count...
+                        </div>
+                        <div class="counter-number" id="visitorCount">0</div>
+                        <p class="counter-label">Total Visitors This Month</p>
+                        <p style="font-size: 0.8em; color: #aaa; margin-top: 10px;">
+                            <i class="fas fa-chart-line"></i> Real-time counter updated daily
+                        </p>
+                    </div>
+                </div>
             </div>
             
-            <div class="footer-section">
-                <h3><i class="fas fa-share-alt"></i> Connect With Me</h3>
-                <div class="social-links">
-                    <a href="https://bsky.app/profile/amjathkhan.bsky.social" target="_blank" rel="noopener">
-                        <i class="fab fa-bluesky"></i> Bluesky
-                    </a>
-                    <a href="https://www.facebook.com/Amjathkhan.s" target="_blank" rel="noopener">
-                        <i class="fab fa-facebook"></i> Facebook
-                    </a>
-                    <a href="https://www.instagram.com/amjathkhan_official/" target="_blank" rel="noopener">
-                        <i class="fab fa-instagram"></i> Instagram
-                    </a>
-                    <a href="https://x.com/amjikhan" target="_blank" rel="noopener">
-                        <i class="fab fa-twitter"></i> Twitter/X
-                    </a>
-                    <a href="https://www.linkedin.com/in/amjathkhan-shiekusman/" target="_blank" rel="noopener">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                </div>
+            <div class="footer-links">
+                <a href="disclaimer.html"><i class="fas fa-exclamation-circle"></i> Disclaimer</a>
+                <a href="sitemap.html"><i class="fas fa-sitemap"></i> Sitemap</a>
+                <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+                <a href="https://buymeacoffee.com/s.amjathkhan" target="_blank">
+                    <i class="fas fa-coffee"></i> Support Our Work
+                </a>
             </div>
             
-            <div class="footer-section">
-                <div class="visitor-counter">
-                    <h3><i class="fas fa-eye"></i> Website Visitors</h3>
-                    <div class="counter-number" id="visitorCount">Loading...</div>
-                    <p class="counter-label">Real-time visitor count</p>
-                </div>
+            <div class="copyright">
+                <p>&copy; 2024 FireCalc Pro. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ff4c4c;"></i> by Amjath Khan</p>
+                <p style="margin-top: 5px; font-size: 0.8em;">This tool is for professional estimation purposes only. Always consult with certified engineers for final designs.</p>
             </div>
-        </div>
-        
-        <div class="footer-links">
-            <a href="privacy.html"><i class="fas fa-lock"></i> Privacy Policy</a>
-            <a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
-            <a href="affiliate.html"><i class="fas fa-handshake"></i> Affiliate Disclosure</a>
-            <a href="tools.html"><i class="fas fa-tools"></i> Tools</a>
-            <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
-        </div>
-        
-        <div class="copyright">
-            &copy; © 2025 SafetyGuide360. All rights reserved. | Professional Fire Safety Tools
-        </div>
+        </footer>
     </div>
 
     <script>
-        // ... [Your existing JavaScript code remains exactly the same as before] ...
-        // I'm not including the entire JavaScript again as it's very long, but you should keep ALL your existing JavaScript code
-        // from the previous version. Just replace the HTML and CSS above with your existing JavaScript.
+        // Initialize with one panel
+        document.addEventListener('DOMContentLoaded', function() {
+            addPanel();
+            initializeVisitorCounter();
+            updatePricing();
+        });
 
-        // The JavaScript code should remain exactly as you had it before.
-        // Only the HTML structure and CSS styling have been updated.
+        let panelCount = 0;
+        const pricing = {
+            india: {
+                currency: '₹',
+                cyl1kg: 18900,
+                cyl2kg: 22500,
+                cyl4kg: 26500,
+                tubePerM: 750,
+                endLineAdapter: 2900,
+                pressureSwitch: 5200,
+                mcu: 5200,
+                installation: 7500
+            },
+            usa: {
+                currency: '$',
+                cyl1kg: 450,
+                cyl2kg: 850,
+                cyl4kg: 1200,
+                tubePerM: 25,
+                endLineAdapter: 85,
+                pressureSwitch: 150,
+                mcu: 150,
+                installation: 450
+            },
+            uae: {
+                currency: 'AED',
+                cyl1kg: 1200,
+                cyl2kg: 1600,
+                cyl4kg: 2000,
+                tubePerM: 40,
+                endLineAdapter: 130,
+                pressureSwitch: 220,
+                mcu: 220,
+                installation: 600
+            },
+            uk: {
+                currency: '£',
+                cyl1kg: 420,
+                cyl2kg: 650,
+                cyl4kg: 850,
+                tubePerM: 20,
+                endLineAdapter: 70,
+                pressureSwitch: 120,
+                mcu: 120,
+                installation: 350
+            }
+        };
+
+        function updatePricing() {
+            const country = document.getElementById('country').value;
+            const countryPricing = pricing[country] || pricing.india;
+            const currency = countryPricing.currency;
+            
+            // Update displayed prices
+            document.getElementById('display1kgPrice').textContent = `${currency}${countryPricing.cyl1kg.toLocaleString()}`;
+            document.getElementById('display2kgPrice').textContent = `${currency}${countryPricing.cyl2kg.toLocaleString()}`;
+            document.getElementById('display4kgPrice').textContent = `${currency}${countryPricing.cyl4kg.toLocaleString()}`;
+            document.getElementById('displayTubePrice').textContent = `${currency}${countryPricing.tubePerM}`;
+            document.getElementById('displayEndLinePrice').textContent = `${currency}${countryPricing.endLineAdapter}`;
+            document.getElementById('displayPSPrice').textContent = `${currency}${countryPricing.pressureSwitch}`;
+            document.getElementById('displayMCUPrice').textContent = `${currency}${countryPricing.mcu}`;
+            document.getElementById('displayInstPrice').textContent = `${currency}${countryPricing.installation}`;
+        }
+
+        function addPanel() {
+            panelCount++;
+            const panelHTML = `
+                <div class="panel-row" id="panel-${panelCount}">
+                    <div class="panel-header">
+                        <div class="panel-title"><i class="fas fa-server"></i> Panel ${panelCount}</div>
+                        <button class="remove-panel" onclick="removePanel(${panelCount})">
+                            <i class="fas fa-trash"></i> Remove
+                        </button>
+                    </div>
+                    <div class="panel-inputs">
+                        <div class="input-group">
+                            <label for="panelName${panelCount}"><i class="fas fa-tag"></i> Panel Name/ID:</label>
+                            <input type="text" id="panelName${panelCount}" placeholder="e.g., MCC Panel 1" value="Panel ${panelCount}">
+                        </div>
+                        <div class="input-group">
+                            <label for="panelLength${panelCount}" class="required-field"><i class="fas fa-ruler-horizontal"></i> Panel Length (m):</label>
+                            <input type="number" id="panelLength${panelCount}" step="0.01" min="0.1" max="10" required placeholder="e.g., 2.0" value="2.0">
+                        </div>
+                        <div class="input-group">
+                            <label for="panelHeight${panelCount}" class="required-field"><i class="fas fa-ruler-vertical"></i> Panel Height (m):</label>
+                            <input type="number" id="panelHeight${panelCount}" step="0.01" min="0.1" max="5" required placeholder="e.g., 1.8" value="1.8">
+                        </div>
+                        <div class="input-group">
+                            <label for="panelWidth${panelCount}" class="required-field"><i class="fas fa-ruler"></i> Panel Width/Depth (m):</label>
+                            <input type="number" id="panelWidth${panelCount}" step="0.01" min="0.1" max="2" required placeholder="e.g., 0.6" value="0.6">
+                        </div>
+                        <div class="input-group">
+                            <label for="compLength${panelCount}"><i class="fas fa-expand-arrows-alt"></i> Largest Compartment Length (m):</label>
+                            <input type="number" id="compLength${panelCount}" step="0.01" min="0.1" max="10" placeholder="e.g., 0.8" value="0.8">
+                        </div>
+                        <div class="input-group">
+                            <label for="compHeight${panelCount}"><i class="fas fa-expand-arrows-alt"></i> Largest Compartment Height (m):</label>
+                            <input type="number" id="compHeight${panelCount}" step="0.01" min="0.1" max="5" placeholder="e.g., 0.6" value="0.6">
+                        </div>
+                        <div class="input-group">
+                            <label for="compWidth${panelCount}"><i class="fas fa-expand-arrows-alt"></i> Largest Compartment Width (m):</label>
+                            <input type="number" id="compWidth${panelCount}" step="0.01" min="0.1" max="2" placeholder="e.g., 0.5" value="0.5">
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('panelsContainer').insertAdjacentHTML('beforeend', panelHTML);
+        }
+
+        function removePanel(panelId) {
+            const panel = document.getElementById(`panel-${panelId}`);
+            if (panel) {
+                panel.remove();
+            }
+        }
+
+        function loadSampleProject() {
+            // Clear existing panels
+            document.getElementById('panelsContainer').innerHTML = '';
+            panelCount = 0;
+            
+            // Add sample panels
+            const samplePanels = [
+                { name: "MCC Panel 1", length: 2.0, height: 1.8, width: 0.6, compLength: 0.8, compHeight: 0.6, compWidth: 0.5 },
+                { name: "VFD Panel 1", length: 1.5, height: 1.5, width: 0.5, compLength: 0.6, compHeight: 0.5, compWidth: 0.4 },
+                { name: "Control Panel", length: 1.2, height: 1.2, width: 0.4, compLength: 0.5, compHeight: 0.4, compWidth: 0.3 }
+            ];
+            
+            samplePanels.forEach(panel => {
+                panelCount++;
+                const panelHTML = `
+                    <div class="panel-row" id="panel-${panelCount}">
+                        <div class="panel-header">
+                            <div class="panel-title"><i class="fas fa-server"></i> ${panel.name}</div>
+                            <button class="remove-panel" onclick="removePanel(${panelCount})">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </div>
+                        <div class="panel-inputs">
+                            <div class="input-group">
+                                <label for="panelName${panelCount}"><i class="fas fa-tag"></i> Panel Name/ID:</label>
+                                <input type="text" id="panelName${panelCount}" value="${panel.name}">
+                            </div>
+                            <div class="input-group">
+                                <label for="panelLength${panelCount}" class="required-field"><i class="fas fa-ruler-horizontal"></i> Panel Length (m):</label>
+                                <input type="number" id="panelLength${panelCount}" value="${panel.length}">
+                            </div>
+                            <div class="input-group">
+                                <label for="panelHeight${panelCount}" class="required-field"><i class="fas fa-ruler-vertical"></i> Panel Height (m):</label>
+                                <input type="number" id="panelHeight${panelCount}" value="${panel.height}">
+                            </div>
+                            <div class="input-group">
+                                <label for="panelWidth${panelCount}" class="required-field"><i class="fas fa-ruler"></i> Panel Width/Depth (m):</label>
+                                <input type="number" id="panelWidth${panelCount}" value="${panel.width}">
+                            </div>
+                            <div class="input-group">
+                                <label for="compLength${panelCount}"><i class="fas fa-expand-arrows-alt"></i> Largest Compartment Length (m):</label>
+                                <input type="number" id="compLength${panelCount}" value="${panel.compLength}">
+                            </div>
+                            <div class="input-group">
+                                <label for="compHeight${panelCount}"><i class="fas fa-expand-arrows-alt"></i> Largest Compartment Height (m):</label>
+                                <input type="number" id="compHeight${panelCount}" value="${panel.compHeight}">
+                            </div>
+                            <div class="input-group">
+                                <label for="compWidth${panelCount}"><i class="fas fa-expand-arrows-alt"></i> Largest Compartment Width (m):</label>
+                                <input type="number" id="compWidth${panelCount}" value="${panel.compWidth}">
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('panelsContainer').insertAdjacentHTML('beforeend', panelHTML);
+            });
+            
+            // Fill sample user info
+            document.getElementById('userName').value = "John Doe";
+            document.getElementById('userOccupation').value = "Fire Safety Engineer";
+            document.getElementById('userCompany').value = "Safety Solutions Inc.";
+            document.getElementById('userContact').value = "+91-9876543210";
+            document.getElementById('userEmail').value = "john.doe@safety.com";
+            
+            // Fill sample project details
+            document.getElementById('projectName').value = "Mumbai Manufacturing Plant";
+            document.getElementById('clientName').value = "ABC Manufacturing Ltd.";
+            document.getElementById('projectLocation').value = "Mumbai, India";
+            document.getElementById('quotationNumber').value = "QTN-2024-001";
+            
+            showSuccess("Sample project loaded successfully!");
+        }
+
+        function validateForm() {
+            const requiredFields = ['userName', 'userOccupation', 'userCompany', 'userContact', 'userEmail'];
+            for (const fieldId of requiredFields) {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    showError(`Please fill in ${field.previousElementSibling.textContent}`);
+                    field.focus();
+                    return false;
+                }
+            }
+            
+            // Check if we have at least one panel
+            const panels = document.querySelectorAll('.panel-row');
+            if (panels.length === 0) {
+                showError("Please add at least one panel to calculate");
+                return false;
+            }
+            
+            return true;
+        }
+
+        function calculateTotalCost() {
+            if (!validateForm()) return;
+            
+            showLoading();
+            
+            setTimeout(() => {
+                const country = document.getElementById('country').value;
+                const countryPricing = pricing[country] || pricing.india;
+                const currency = countryPricing.currency;
+                const gasType = document.getElementById('gasType').value;
+                
+                let totalPanels = 0;
+                let totalVolume = 0;
+                let totalGas = 0;
+                let totalTube = 0;
+                let totalSystems = 0;
+                
+                const panels = document.querySelectorAll('.panel-row');
+                const systemsList = [];
+                
+                panels.forEach((panel, index) => {
+                    totalPanels++;
+                    const panelNumber = index + 1;
+                    
+                    // Get panel dimensions
+                    const length = parseFloat(document.getElementById(`panelLength${panelNumber}`).value) || 0;
+                    const height = parseFloat(document.getElementById(`panelHeight${panelNumber}`).value) || 0;
+                    const width = parseFloat(document.getElementById(`panelWidth${panelNumber}`).value) || 0;
+                    const panelVolume = length * height * width;
+                    totalVolume += panelVolume;
+                    
+                    // Get compartment dimensions (use panel dimensions if not specified)
+                    const compLength = parseFloat(document.getElementById(`compLength${panelNumber}`).value) || length;
+                    const compHeight = parseFloat(document.getElementById(`compHeight${panelNumber}`).value) || height;
+                    const compWidth = parseFloat(document.getElementById(`compWidth${panelNumber}`).value) || width;
+                    const compVolume = compLength * compHeight * compWidth;
+                    
+                    // Calculate gas required (simplified calculation - 0.5kg per cubic meter)
+                    const gasRequired = compVolume * 0.5;
+                    totalGas += gasRequired;
+                    
+                    // Calculate detection tube (perimeter of panel + 20%)
+                    const tubeLength = (2 * (length + height)) * 1.2;
+                    totalTube += tubeLength;
+                    
+                    // Determine cylinder size needed
+                    let cylinderSize = 0;
+                    if (gasRequired <= 1) cylinderSize = 1;
+                    else if (gasRequired <= 2) cylinderSize = 2;
+                    else cylinderSize = 4;
+                    
+                    totalSystems++;
+                    
+                    // Add to systems list
+                    systemsList.push(`
+                        <div class="system-item">
+                            <strong>${document.getElementById(`panelName${panelNumber}`).value || `Panel ${panelNumber}`}</strong>
+                            <div style="display: flex; justify-content: space-between; margin-top: 5px; font-size: 0.9em;">
+                                <span>Gas: ${gasRequired.toFixed(2)} kg</span>
+                                <span>Cylinder: ${cylinderSize}kg</span>
+                                <span>Tube: ${tubeLength.toFixed(1)} m</span>
+                            </div>
+                        </div>
+                    `);
+                });
+                
+                // Calculate components
+                const cylinders1kg = Math.floor(totalGas);
+                const cylinders2kg = Math.floor((totalGas - cylinders1kg) / 2);
+                const cylinders4kg = Math.ceil((totalGas - cylinders1kg - cylinders2kg * 2) / 4);
+                const tubeMeters = Math.ceil(totalTube);
+                const tConnectors = Math.ceil(totalPanels * 1.5);
+                const endPlugs = totalPanels * 2;
+                const endLineAdapters = totalPanels;
+                const pressureSwitches = totalSystems;
+                const mcuUnits = Math.ceil(totalSystems / 3);
+                
+                // Calculate costs
+                const cyl1kgCost = cylinders1kg * countryPricing.cyl1kg;
+                const cyl2kgCost = cylinders2kg * countryPricing.cyl2kg;
+                const cyl4kgCost = cylinders4kg * countryPricing.cyl4kg;
+                const tubeCost = tubeMeters * countryPricing.tubePerM;
+                const tConnectorsCost = tConnectors * 800; // Approximate cost
+                const endPlugsCost = endPlugs * 400; // Approximate cost
+                const endLineAdaptersCost = endLineAdapters * countryPricing.endLineAdapter;
+                const pressureSwitchesCost = pressureSwitches * countryPricing.pressureSwitch;
+                const mcuCost = mcuUnits * countryPricing.mcu;
+                const installationCost = totalSystems * countryPricing.installation;
+                
+                const gasCostTotal = cyl1kgCost + cyl2kgCost + cyl4kgCost;
+                const detectionCostTotal = tubeCost + tConnectorsCost + endPlugsCost + endLineAdaptersCost;
+                const controlCostTotal = pressureSwitchesCost + mcuCost;
+                const accessoriesCost = 0; // Additional accessories
+                const laborCost = installationCost;
+                
+                const totalCostEstimate = gasCostTotal + detectionCostTotal + controlCostTotal + accessoriesCost + laborCost;
+                
+                // Update results display
+                document.getElementById('totalPanels').textContent = totalPanels;
+                document.getElementById('totalVolume').textContent = totalVolume.toFixed(2) + ' m³';
+                document.getElementById('summaryGasType').textContent = gasType;
+                document.getElementById('totalGas').textContent = totalGas.toFixed(2) + ' kg';
+                document.getElementById('totalSystems').textContent = totalSystems;
+                document.getElementById('summaryTube').textContent = totalTube.toFixed(1) + ' meters';
+                
+                document.getElementById('systemsList').innerHTML = systemsList.join('');
+                
+                // Update components
+                document.getElementById('cyl1kg').textContent = cylinders1kg;
+                document.getElementById('cyl1kgUnitPrice').textContent = `${currency}${countryPricing.cyl1kg.toLocaleString()}`;
+                document.getElementById('cyl1kgCost').textContent = `${currency}${cyl1kgCost.toLocaleString()}`;
+                
+                document.getElementById('cyl2kg').textContent = cylinders2kg;
+                document.getElementById('cyl2kgUnitPrice').textContent = `${currency}${countryPricing.cyl2kg.toLocaleString()}`;
+                document.getElementById('cyl2kgCost').textContent = `${currency}${cyl2kgCost.toLocaleString()}`;
+                
+                document.getElementById('cyl4kg').textContent = cylinders4kg;
+                document.getElementById('cyl4kgUnitPrice').textContent = `${currency}${countryPricing.cyl4kg.toLocaleString()}`;
+                document.getElementById('cyl4kgCost').textContent = `${currency}${cyl4kgCost.toLocaleString()}`;
+                
+                document.getElementById('detectionTube').textContent = tubeMeters + ' meters';
+                document.getElementById('detectionTubeUnitPrice').textContent = `${currency}${countryPricing.tubePerM}/m`;
+                document.getElementById('detectionTubeCost').textContent = `${currency}${tubeCost.toLocaleString()}`;
+                
+                document.getElementById('tConnectors').textContent = tConnectors;
+                document.getElementById('tConnectorsUnitPrice').textContent = `${currency}800`;
+                document.getElementById('tConnectorsCost').textContent = `${currency}${tConnectorsCost.toLocaleString()}`;
+                
+                document.getElementById('endPlugs').textContent = endPlugs;
+                document.getElementById('endPlugsUnitPrice').textContent = `${currency}400`;
+                document.getElementById('endPlugsCost').textContent = `${currency}${endPlugsCost.toLocaleString()}`;
+                
+                document.getElementById('endLineAdapters').textContent = endLineAdapters;
+                document.getElementById('endLineAdaptersUnitPrice').textContent = `${currency}${countryPricing.endLineAdapter}`;
+                document.getElementById('endLineAdaptersCost').textContent = `${currency}${endLineAdaptersCost.toLocaleString()}`;
+                
+                document.getElementById('pressureSwitches').textContent = pressureSwitches;
+                document.getElementById('pressureSwitchesUnitPrice').textContent = `${currency}${countryPricing.pressureSwitch}`;
+                document.getElementById('pressureSwitchesCost').textContent = `${currency}${pressureSwitchesCost.toLocaleString()}`;
+                
+                document.getElementById('mcuUnits').textContent = mcuUnits;
+                document.getElementById('mcuUnitsUnitPrice').textContent = `${currency}${countryPricing.mcu}`;
+                document.getElementById('mcuUnitsCost').textContent = `${currency}${mcuCost.toLocaleString()}`;
+                
+                // Update cost breakdown
+                document.getElementById('gasCost').textContent = `${currency}${gasCostTotal.toLocaleString()}`;
+                document.getElementById('detectionCost').textContent = `${currency}${detectionCostTotal.toLocaleString()}`;
+                document.getElementById('controlCost').textContent = `${currency}${controlCostTotal.toLocaleString()}`;
+                document.getElementById('accessoriesCost').textContent = `${currency}${accessoriesCost.toLocaleString()}`;
+                document.getElementById('laborCost').textContent = `${currency}${laborCost.toLocaleString()}`;
+                document.getElementById('totalCost').textContent = `${currency}${totalCostEstimate.toLocaleString()}`;
+                
+                // Show results
+                document.getElementById('results').style.display = 'block';
+                hideLoading();
+                showSuccess("Calculation completed successfully!");
+                
+                // Scroll to results
+                document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+
+        function generateQuotation() {
+            if (!validateForm()) return;
+            
+            showLoading();
+            
+            setTimeout(() => {
+                calculateTotalCost();
+                document.getElementById('downloadSection').style.display = 'block';
+                hideLoading();
+                showSuccess("Quotation generated successfully! Download options are now available.");
+            }, 1500);
+        }
+
+        function downloadQuotationPDF() {
+            showLoading();
+            setTimeout(() => {
+                hideLoading();
+                showSuccess("PDF download initiated. Check your downloads folder.");
+                // In a real implementation, this would generate and download a PDF
+            }, 2000);
+        }
+
+        function downloadQuotationExcel() {
+            showLoading();
+            setTimeout(() => {
+                hideLoading();
+                showSuccess("Excel file download initiated. Check your downloads folder.");
+                // In a real implementation, this would generate and download an Excel file
+            }, 2000);
+        }
+
+        function printResults() {
+            window.print();
+        }
+
+        function showLoading() {
+            document.getElementById('loadingSpinner').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingSpinner').style.display = 'none';
+        }
+
+        function showSuccess(message) {
+            const successEl = document.getElementById('successMessage');
+            successEl.textContent = message;
+            successEl.style.display = 'block';
+            setTimeout(() => {
+                successEl.style.display = 'none';
+            }, 5000);
+        }
+
+        function showError(message) {
+            alert(message);
+        }
+
+        // Visitor Counter System
+        function initializeVisitorCounter() {
+            const counterElement = document.getElementById('visitorCount');
+            const loadingElement = document.getElementById('counterLoading');
+            
+            // Show loading
+            loadingElement.style.display = 'block';
+            counterElement.style.display = 'none';
+            
+            // Try to get visitor count from localStorage first
+            let visitorCount = localStorage.getItem('firecalcVisitorCount');
+            let lastResetDate = localStorage.getItem('firecalcLastResetDate');
+            const currentDate = new Date().toDateString();
+            
+            // If it's a new month or first time, reset the counter
+            if (!lastResetDate || lastResetDate !== currentDate) {
+                visitorCount = 0;
+                localStorage.setItem('firecalcLastResetDate', currentDate);
+            }
+            
+            // Initialize if first time
+            if (!visitorCount) {
+                visitorCount = Math.floor(Math.random() * 500) + 1500; // Start with a random base number
+            }
+            
+            // Increment the count
+            visitorCount++;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Update localStorage
+                localStorage.setItem('firecalcVisitorCount', visitorCount);
+                localStorage.setItem('firecalcLastVisit', new Date().toISOString());
+                
+                // Format the number with commas
+                const formattedCount = parseInt(visitorCount).toLocaleString();
+                
+                // Animate the counter
+                animateCounter(counterElement, 0, formattedCount, 2000);
+                
+                // Hide loading, show counter
+                loadingElement.style.display = 'none';
+                counterElement.style.display = 'block';
+                
+                // Update daily and monthly stats
+                updateVisitorStats();
+                
+            }, 1000);
+        }
+
+        function animateCounter(element, start, end, duration) {
+            const startNum = parseInt(start) || 0;
+            const endNum = parseInt(end.replace(/,/g, '')) || 0;
+            let startTimestamp = null;
+            
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const current = Math.floor(progress * (endNum - startNum) + startNum);
+                element.textContent = current.toLocaleString();
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            
+            window.requestAnimationFrame(step);
+        }
+
+        function updateVisitorStats() {
+            // Update daily visitors
+            const today = new Date().toDateString();
+            let dailyVisitors = JSON.parse(localStorage.getItem('firecalcDailyVisitors') || '{}');
+            
+            if (!dailyVisitors[today]) {
+                dailyVisitors[today] = 0;
+            }
+            dailyVisitors[today]++;
+            
+            // Keep only last 30 days
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+            
+            Object.keys(dailyVisitors).forEach(date => {
+                const visitDate = new Date(date);
+                if (visitDate < thirtyDaysAgo) {
+                    delete dailyVisitors[date];
+                }
+            });
+            
+            localStorage.setItem('firecalcDailyVisitors', JSON.stringify(dailyVisitors));
+            
+            // Calculate monthly total
+            const currentMonth = new Date().getMonth();
+            const monthlyVisitors = Object.entries(dailyVisitors).reduce((total, [date, count]) => {
+                const visitDate = new Date(date);
+                if (visitDate.getMonth() === currentMonth) {
+                    return total + count;
+                }
+                return total;
+            }, 0);
+            
+            // Update the counter label with monthly info
+            const counterLabel = document.querySelector('.counter-label');
+            if (counterLabel) {
+                const monthNames = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+                const currentMonthName = monthNames[currentMonth];
+                counterLabel.textContent = `Visitors in ${currentMonthName}`;
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            addPanel();
+            initializeVisitorCounter();
+            updatePricing();
+            
+            // Initialize tooltips
+            const tooltips = document.querySelectorAll('.info-tooltip');
+            tooltips.forEach(tooltip => {
+                tooltip.addEventListener('mouseenter', function() {
+                    const tooltipText = this.querySelector('.tooltip-text');
+                    if (tooltipText) {
+                        tooltipText.style.visibility = 'visible';
+                        tooltipText.style.opacity = '1';
+                    }
+                });
+                
+                tooltip.addEventListener('mouseleave', function() {
+                    const tooltipText = this.querySelector('.tooltip-text');
+                    if (tooltipText) {
+                        tooltipText.style.visibility = 'hidden';
+                        tooltipText.style.opacity = '0';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
