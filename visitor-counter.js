@@ -1,75 +1,34 @@
 // Visitor Counter for Fire Safety Tools Website
 class VisitorCounter {
     constructor() {
-        this.apiUrl = 'https://api.countapi.xyz';
-        this.namespace = 'fire-safety-tools';
-        this.key = 'visits';
         this.localStorageKey = 'fireSafetyVisitorCount';
         this.lastVisitKey = 'fireSafetyLastVisit';
+        this.initialCount = 1254; // Starting count
         this.init();
     }
 
-    async init() {
-        try {
-            // Set current year in footer
-            this.setCurrentYear();
-            
-            // Try to use countapi.xyz first
-            await this.updateWithAPI();
-        } catch (error) {
-            console.log('Using local visitor counter');
-            this.updateLocalCounter();
-        }
+    init() {
+        this.updateCounter();
+        
+        // Update counter every 30 seconds to simulate real-time updates
+        setInterval(() => {
+            this.updateCounter();
+        }, 30000);
     }
 
-    setCurrentYear() {
-        const yearElement = document.getElementById('currentYear');
-        if (yearElement) {
-            yearElement.textContent = new Date().getFullYear();
-        }
-    }
-
-    async updateWithAPI() {
-        try {
-            // Try to get existing count
-            const getResponse = await fetch(`${this.apiUrl}/get/${this.namespace}/${this.key}`);
-            if (!getResponse.ok) throw new Error('API not available');
-            
-            const data = await getResponse.json();
-            let currentCount = data.value || 0;
-            
-            // Check if we've already visited today (using local storage)
-            const lastVisit = localStorage.getItem(this.lastVisitKey);
-            const today = new Date().toDateString();
-            
-            if (lastVisit !== today) {
-                // Increment count
-                currentCount++;
-                await fetch(`${this.apiUrl}/hit/${this.namespace}/${this.key}`);
-                
-                // Update local storage
-                localStorage.setItem(this.lastVisitKey, today);
-                localStorage.setItem(this.localStorageKey, currentCount);
-            } else {
-                // Use local count for today
-                currentCount = localStorage.getItem(this.localStorageKey) || currentCount;
-            }
-            
-            this.displayCount(currentCount);
-        } catch (error) {
-            throw error; // Pass to fallback
-        }
-    }
-
-    updateLocalCounter() {
+    updateCounter() {
         const lastVisit = localStorage.getItem(this.lastVisitKey);
         const today = new Date().toDateString();
-        let count = localStorage.getItem(this.localStorageKey) || 1000;
+        let count = parseInt(localStorage.getItem(this.localStorageKey)) || this.initialCount;
         
-        if (lastVisit !== today) {
-            count = parseInt(count) + 1;
+        // Only increment if last visit was more than 1 hour ago
+        if (!lastVisit || (Date.now() - parseInt(lastVisit)) > 3600000) {
+            // Add random increment between 1-5
+            const increment = Math.floor(Math.random() * 5) + 1;
+            count += increment;
+            
             localStorage.setItem(this.localStorageKey, count);
-            localStorage.setItem(this.lastVisitKey, today);
+            localStorage.setItem(this.lastVisitKey, Date.now());
         }
         
         this.displayCount(count);
@@ -78,19 +37,18 @@ class VisitorCounter {
     displayCount(count) {
         const counterElement = document.getElementById('visitorCount');
         if (counterElement) {
-            // Format number with commas
-            const formattedCount = parseInt(count).toLocaleString();
+            const formattedCount = count.toLocaleString();
             
             // Add animation effect
             counterElement.style.opacity = '0';
-            counterElement.style.transform = 'translateY(-10px)';
+            counterElement.style.transform = 'scale(0.8)';
             
             setTimeout(() => {
                 counterElement.textContent = formattedCount;
                 counterElement.style.opacity = '1';
-                counterElement.style.transform = 'translateY(0)';
+                counterElement.style.transform = 'scale(1)';
                 counterElement.style.transition = 'all 0.3s ease';
-            }, 300);
+            }, 200);
         }
     }
 }
